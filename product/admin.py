@@ -10,8 +10,8 @@ class ProductImageInline(admin.TabularInline):
     model = Images
     Extra = 5
 
-class productAdmin(admin.ModelAdmin):
-    list_display = ['title','category','image_tag']
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['title', 'category', 'image_tag']
     readonly_fields = ('image_tag',)
     inlines = [ProductImageInline]
 
@@ -19,11 +19,13 @@ class productAdmin(admin.ModelAdmin):
 
 
 
+
 class imagesAdmin(admin.ModelAdmin):
-    list_display = ['title','product','images']
+    list_display = ['title', 'product', 'image_tag']
+    readonly_fields = ('image_tag',)
 
 
 
 admin.site.register(category,categoryAdmin)
-admin.site.register(Product)
+admin.site.register(Product,ProductAdmin)
 admin.site.register(Images,imagesAdmin)
