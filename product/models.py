@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from django.utils.safestring import mark_safe
 
 
 # Create your models here.
@@ -38,5 +40,34 @@ class Product(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
+def image_tag(self):
+    return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+
+    image_tag.short_description = 'Image'
+
+def __str__(self):
         return self.title
+
+def get_absolute_url(self):
+        return reverse('product_detail', kwargs={'slug': self.slug})
+
+
+
+
+
+
+
+class Images(models.Model):
+    title = models.CharField(max_length=50)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    images = models.ImageField(blank=True, upload_to='images/')
+
+def __str__(self):
+        return self.title
+
+def image_tag(self):
+    return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+
+image_tag.short_description='image'
+
+
