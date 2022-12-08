@@ -25,7 +25,7 @@ urlpatterns = [
     path('home/', include('home.urls')),
     path('admin/', admin.site.urls),
     path('product/', include('product.urls')),
-    path('category/<int:id>/<slug:slug>', views.category_products, name='category_products'),]
+    path('Category/<int:id>/<slug:slug>', views.category_products, name='category_products'),]
 if settings.DEBUG:  # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
