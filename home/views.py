@@ -8,7 +8,14 @@ from product.models import Product, category
 
 def index(request):
     Category=category.objects.all()
-    context = {'category': Category}
+    dayproducts = Product.objects.all()[:4]
+    lastproducts = Product.objects.all().order_by('-id')[0:4]
+    randomproducts = Product.objects.all().order_by('?')[0:4]
+    context = {'category': Category,
+               'dayproducts': dayproducts,
+              'lastproducts': lastproducts,
+              'randomproducts': randomproducts
+               }
     return render(request,'index.html',context)
 
 def category_products(request, id, slug):
