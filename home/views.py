@@ -1,17 +1,19 @@
 
 from django.http import HttpResponse
 from django.shortcuts import render
-from product.models import Product, category
+from product.models import Product, category, Images
 
 
 # Create your views here.
 
 def index(request):
     Category=category.objects.all()
+    sliderData = Product.objects.all()[:6]
     dayproducts = Product.objects.all()[:4]
     lastproducts = Product.objects.all().order_by('-id')[0:4]
     randomproducts = Product.objects.all().order_by('?')[0:4]
     context = {'category': Category,
+               'sliderData': sliderData,
                'dayproducts': dayproducts,
               'lastproducts': lastproducts,
               'randomproducts': randomproducts
@@ -26,3 +28,12 @@ def category_products(request, id, slug):
                'Products': product,
                'category':Category}
     return render(request, 'category_products.html', context)
+def product_detail(request,id,slug):
+
+    Category = category.objects.all()
+    products = Product.objects.filter(pk=id)
+    images = Images.objects.filter(product_id=id)
+    context = {'products': products,
+               'category': Category,
+               'images': images}
+    return render(request, 'product_detail.html', context)
