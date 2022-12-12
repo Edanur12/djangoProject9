@@ -5,6 +5,7 @@ from product.models import category, Product, Images
 class categoryAdmin(admin.ModelAdmin):
     list_display = ['title','status']
     list_filter = ['status']
+    prepopulated_fields = {'slug': ('title',)}
 # Register your models here.
 class ProductImageInline(admin.TabularInline):
     model = Images
@@ -14,6 +15,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ['title', 'category', 'image_tag']
     readonly_fields = ('image_tag',)
     inlines = [ProductImageInline]
+    prepopulated_fields = {'slug': ('title',)}
 
 
 

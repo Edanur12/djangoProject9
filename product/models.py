@@ -1,4 +1,6 @@
+from django.contrib.auth.models import User
 from django.db import models
+from django.forms import ModelForm
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 
@@ -14,7 +16,7 @@ class category(models.Model):
     description = models.CharField(max_length=255)
     image = models.ImageField(blank=True, upload_to='images/')
     status = models.CharField(max_length=10, choices=STATUS)
-    slug = models.SlugField()
+    slug = models.SlugField(null=False, unique=True)
     parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
@@ -77,8 +79,28 @@ class Images(models.Model):
 
     image_tag.short_description = 'Image'
 
+class Comment(models.Model):
+    STATUS = (
+        ('New', 'Yeni'),
+        ('True', 'Evet'),
+        ('False', 'Hayır')
+    )
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, default='Yeni')
+    subject = models.CharField(max_length=50)
+    comment = models.TextField(max_length=300)
+    status = models.CharField(max_length=10, choices=STATUS, blank=True)
+    ip = models.CharField(max_length=20, blank=True)
+    create_at = models.DateTimeField(auto_now_add=True)
+    uptade_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.subject
 
 
 
 
-
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['subject', 'comment']
