@@ -1,5 +1,5 @@
 from django.contrib import admin
-from product.models import category, Product, Images
+from product.models import category, Product, Images, Comment
 
 
 class categoryAdmin(admin.ModelAdmin):
@@ -26,8 +26,12 @@ class imagesAdmin(admin.ModelAdmin):
     list_display = ['title', 'product', 'image_tag']
     readonly_fields = ('image_tag',)
 
+class commentAdmin(admin.ModelAdmin):
+    list_display = ['subject','status']
+    list_filter = ['status']
 
 
 admin.site.register(category,categoryAdmin)
 admin.site.register(Product,ProductAdmin)
 admin.site.register(Images,imagesAdmin)
+admin.site.register(Comment,commentAdmin)

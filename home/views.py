@@ -8,7 +8,7 @@ from product.models import Product, category, Images, Comment
 
 def index(request):
     Category=category.objects.all()
-    sliderData = Product.objects.all()[:4]
+    sliderData = Product.objects.all()[:6]
     dayproducts = Product.objects.all()[:4]
     lastproducts = Product.objects.all().order_by('-id')[0:4]
     randomproducts = Product.objects.all().order_by('?')[0:4]

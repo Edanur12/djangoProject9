@@ -132,15 +132,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab-pane-3">
+                       <div class="tab-pane fade" id="tab-pane-3">
                         <div class="row">
                             <div class="col-md-6">
                                 <h4 class="mb-4">{{ comments.count }} review for "{{ i.title}}"</h4>
-                                {% for comment in comments %}
-                                <div class="media mb-4">
-                                    <img src="{% static 'img/user.jpg' %}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                {%for comment in comments %}
+                                    <div class="media mb-4">
+                                    <img src="{% static 'img/' %}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                     <div class="media-body">
-                                        <h6>{{ comment.user.username}}<small> - <i>{{ comment.create_at}}</i></small></h6>
+                                        <h6>{{ comment.user.username }}<small> - <i>{{ comment.create_at}}</i></small></h6>
                                         <div class="text-primary mb-2">
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
@@ -148,14 +148,13 @@
                                             <i class="fas fa-star-half-alt"></i>
                                             <i class="far fa-star"></i>
                                         </div>
-                                        <p>{{ comment.subject }} -------- {{ comment.comment }}</p>
-                                    </div>
-                                </div>
-                                    {% endfor %}
-                            </div>
+                                        <p>{{ comment.subject }}-----------------{{ comment.comment }}</p>
 
+                                    </div>
+                                </div>{% endfor %}
+                            </div>
                             <div class="col-md-6">
-                                <h4 class="mb-4">Yorum bırakın</h4>
+                                <h4 class="mb-4">Leave a review</h4>
                                 <small>Your email address will not be published. Required fields are marked *</small>
                                 <div class="d-flex my-3">
                                     <p class="mb-0 mr-2">Your Rating * :</p>
@@ -167,26 +166,26 @@
                                         <i class="far fa-star"></i>
                                     </div>
                                 </div>
-                            <form method="POST" action="/product/addcomment/{{ i.id }}">
-                            {% csrf_token %}
-                                    <div class="form-group">
-                                        <label for="message">Yorumunuz</label>
-                                        <textarea name="comment" id="comment" cols="30" rows="5" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Başlık</label>
-                                        <input name="subject" type="text" class="form-control" id="subject">
-                                    </div>
-                                    {% if user.id is not null %}
-                                    <div class="form-group mb-0">
-                                        <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
-                                    </div>
-                                        </form>
-                                        {% else %}
-                                        <h1>Lütfen oturum açınız.</h1>
-                                    {% endif %}
-                            </div>
 
+                                <form method="POST" action="/product/addcomment/{{ i.id }}">
+                                {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="message">Yorumunuz *</label>
+                                        <textarea id="comment" name="comment" cols="30" rows="5" class="form-control"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Your Subject *</label>
+                                        <input type="text" class="form-control" id="subject" name="subject">
+                                    </div>
+                                    {% if user.id is not none %}
+                                        <div class="form-group mb-0">
+                                        <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                                        </div>
+                                    {% else %}
+                                        <h1>Lütfen login olunuz.</h1>
+                                    {% endif %}
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -194,6 +193,5 @@
         </div>
     </div>
     {% endfor %}
-    <!-- Shop Detail End -->
-
 {% endblock %}
+{% block footer %}{% include "footer.html" %}{% endblock %}
