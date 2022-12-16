@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth import authenticate
+from django.http import HttpResponseRedirect
 from django.urls import path, include
 
 from home import views
@@ -26,10 +28,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('product/', include('product.urls')),
     path('Category/<int:id>/<slug:slug>', views.category_products, name='category_products'),
-    path('product/<int:id>/<slug:slug>', views.product_detail, name='product_detail')
-]
+    path('product/<int:id>/<slug:slug>', views.product_detail, name='product_detail'),
+
+    path('login/', views.login_view, name='login_view'),
+    path('logout/',views.logout_view,name='logout_view'),]
 
 if settings.DEBUG:  # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
 

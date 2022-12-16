@@ -32,3 +32,4 @@ def addcomment(request, id):
     messages.error(request, "Kaydedilme işlemi gerçekleştirilemedi. Lütfen kontrol ediniz.")
     return HttpResponseRedirect(url)
     #return HttpResponse("Kaydedilme işlemi gerçekleştirilemedi.")
+
