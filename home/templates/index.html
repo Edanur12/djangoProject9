@@ -1,6 +1,6 @@
 {%  extends "homebase.html" %}
 
-{% block title %} Edanur'un Projesi {% endblock %}
+{% block title %} {% for setting in settings %}{{ setting.title }}{% endfor %} {% endblock %}
 
 
 {% block header %}{% include "header.html" %}{% endblock %}

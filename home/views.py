@@ -1,6 +1,8 @@
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+
+from home.models import Setting
 from product.models import Product, category, Images, Comment
 
 
@@ -8,6 +10,7 @@ from product.models import Product, category, Images, Comment
 
 def index(request):
     Category=category.objects.all()
+    settings=Setting.objects.filter(pk=0)
     sliderData = Product.objects.all()[:6]
     dayproducts = Product.objects.all()[:4]
     lastproducts = Product.objects.all().order_by('-id')[0:4]
@@ -16,7 +19,8 @@ def index(request):
                'sliderData': sliderData,
                'dayproducts': dayproducts,
               'lastproducts': lastproducts,
-              'randomproducts': randomproducts
+              'randomproducts': randomproducts,
+               'settings':settings,
                }
     return render(request,'index.html',context)
 

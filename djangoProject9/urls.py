@@ -31,7 +31,9 @@ urlpatterns = [
     path('product/<int:id>/<slug:slug>', views.product_detail, name='product_detail'),
 
     path('login/', views.login_view, name='login_view'),
-    path('logout/',views.logout_view,name='logout_view'),]
+    path('logout/',views.logout_view,name='logout_view'),
+    path('user/', include('user.urls')),
+]
 
 if settings.DEBUG:  # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
