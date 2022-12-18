@@ -2,15 +2,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
-from home.models import Setting
+from home.models import Setting, UserProfile
 from product.models import Product, category, Images, Comment
 
 
 # Create your views here.
-
 def index(request):
-    Category=category.objects.all()
-    settings=Setting.objects.filter(pk=0)
+    Category = category.objects.all()
+    settings = Setting.objects.filter(pk=0)
     sliderData = Product.objects.all()[:6]
     dayproducts = Product.objects.all()[:4]
     lastproducts = Product.objects.all().order_by('-id')[0:4]
@@ -18,11 +17,12 @@ def index(request):
     context = {'category': Category,
                'sliderData': sliderData,
                'dayproducts': dayproducts,
-              'lastproducts': lastproducts,
-              'randomproducts': randomproducts,
-               'settings':settings,
+               'lastproducts': lastproducts,
+               'randomproducts': randomproducts,
+               'settings': settings,
                }
-    return render(request,'index.html',context)
+    return render(request, 'index.html', context)
+
 
 def category_products(request, id, slug):
     Category = category.objects.all()
