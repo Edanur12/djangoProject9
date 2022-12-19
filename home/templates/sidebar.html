@@ -39,7 +39,7 @@
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             {% if user.id is not None %}
-                            <a href="" class="nav-item nav-link">{{ user.first_name }}</a>
+                            <a href="/user/" class="nav-item nav-link">{{ user.first_name }}</a>
                                 <a href="/logout/" class="nav-item nav-link">Çıkış Yap</a>
                                 {% else %}
                                <a href="/login/" class="nav-item nav-link">Login</a>
@@ -51,7 +51,7 @@
                    <div id="header-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="height: 410px;">
-                            <img class="img-fluid" src="{%  static 'img/3200_koşu_bandı.PNG' %}" alt="Image">
+                            <img class="img-fluid" src="{%  static 'img/3200_koşu_bandı.PNG/' %}" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
 

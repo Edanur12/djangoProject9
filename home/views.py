@@ -58,5 +58,6 @@ def login_view(request):
     context = {'category': Category, }
     return render(request, 'login.html', context)
 def logout_view(request):
+    url=request.META.get('HTTP_REFERER')
     logout(request)
-    return render(request,'index.html')
+    return HttpResponseRedirect(url)

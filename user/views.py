@@ -8,11 +8,14 @@ from product.models import category, Product
 
 # Create your views here.
 def index(request):
-    current_user=request.user
-    user=UserProfile.objects.get(user_id=current_user.id)
-    settings=Setting.objects.filter(pk=0)
-    context = {
+    if(request.user.id==None):
+        return render(request, 'user_profile.html')
+    else:
+       current_user=request.user
+       user=UserProfile.objects.get(user_id=current_user.id)
+       settings=Setting.objects.filter(pk=0)
+       context = {
                'settings':settings,
                'user':user
                }
-    return render(request,'user_profile.html',context)
+       return render(request,'user_profile.html',context)
