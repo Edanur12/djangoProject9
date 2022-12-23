@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
+from home.forms import NewUserForm
 from home.models import Setting, UserProfile
 from product.models import Product, category, Images, Comment
 
@@ -61,3 +62,23 @@ def logout_view(request):
     url=request.META.get('HTTP_REFERER')
     logout(request)
     return HttpResponseRedirect(url)
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.save()
+            return HttpResponseRedirect('/')
+    form = NewUserForm()
+    Category = category.objects.all()
+    context = {'category': Category,
+               'form': form, }
+    return render(request, 'signup_view.html', context)

@@ -26,16 +26,16 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="/" class="nav-item nav-link active"style="color: #0c5460">Anasayfa</a>
-                            <a href="shop.html" class="nav-item nav-link"style="color: #0c5460">Alışveriş</a>
-                            <a href="detail.html" class="nav-item nav-link" style="color: #0c5460">Shop Detail</a>
+                            <a href="shop.html" class="nav-item nav-link"style="color: #0c5460"></a>
+                            <a href="detail.html" class="nav-item nav-link" style="color: #0c5460"></a>
                             <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"style="color: #0c5460">Pages</a>
+                                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"style="color: #0c5460"></a>
                                 <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                    <a href="cart.html" class="dropdown-item"></a>
+                                    <a href="checkout.html" class="dropdown-item"></a>
                                 </div>
                             </div>
-                            <a href="contact.html" class="nav-item nav-link"style="color: #0c5460">Contact</a>
+                            <a href="/contact.html" class="nav-item nav-link"style="color: #0c5460"></a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             {% if user.id is not None %}
@@ -43,15 +43,16 @@
                                 <a href="/logout/" class="nav-item nav-link">Çıkış Yap</a>
                                 {% else %}
                                <a href="/login/" class="nav-item nav-link">Login</a>
-                                 <a href="" class="nav-item nav-link">Register</a>
+                                 <a href="/register/" class="nav-item nav-link">Register</a>
                             {% endif %}
                         </div>
                     </div>
                 </nav>
+
                    <div id="header-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="height: 410px;">
-                            <img class="img-fluid" src="{%  static 'img/3200_koşu_bandı.PNG/' %}" alt="Image">
+                            <img class="img-fluid" src="{%  static 'img/pilates.jpeg/' %}" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
 
