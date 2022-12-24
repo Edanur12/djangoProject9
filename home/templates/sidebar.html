@@ -18,7 +18,7 @@
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <a href="" class="text-decoration-none d-block d-lg-none">
-                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>ALIŞVERİS</h1>
+                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1"style="background-color: #0c5460">Alpha</span>Spor</h1>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -28,14 +28,8 @@
                             <a href="/" class="nav-item nav-link active"style="color: #0c5460">Anasayfa</a>
                             <a href="shop.html" class="nav-item nav-link"style="color: #0c5460"></a>
                             <a href="detail.html" class="nav-item nav-link" style="color: #0c5460"></a>
-                            <div class="nav-item dropdown">
-                                <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown"style="color: #0c5460"></a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item"></a>
-                                    <a href="checkout.html" class="dropdown-item"></a>
-                                </div>
-                            </div>
-                            <a href="/contact.html" class="nav-item nav-link"style="color: #0c5460"></a>
+
+                            <a href="contact.html" class="nav-item nav-link"style="color: #0c5460"></a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             {% if user.id is not None %}
@@ -43,31 +37,48 @@
                                 <a href="/logout/" class="nav-item nav-link">Çıkış Yap</a>
                                 {% else %}
                                <a href="/login/" class="nav-item nav-link">Login</a>
-                                 <a href="/register/" class="nav-item nav-link">Register</a>
+                                 <a href="" class="nav-item nav-link">Register</a>
                             {% endif %}
                         </div>
                     </div>
                 </nav>
 
-                   <div id="header-carousel" class="carousel slide" data-ride="carousel">
+              <div id="header-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active" style="height: 410px;">
-                            <img class="img-fluid" src="{%  static 'img/pilates.jpeg/' %}" alt="Image">
+                            <img class="img-fluid" src="{%  static 'images/3200_koşu_bandı.PNG' %}" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">İNDİRİMLİ SPOR ÜRÜNLERİ</h4>
 
-
-                                    <a href="" class="btn btn-light py-2 px-3">ALIŞVERİŞE BAŞLA</a>
+                                    <a href="" class="btn btn-light py-2 px-3"style="background-color: #bd726b">Alışverişe Başla</a>
                                 </div>
                             </div>
                         </div>
                         <div class="carousel-item" style="height: 410px;">
-                            <img class="img-fluid"  alt="Image">
+                            <img class="img-fluid" src="{% static 'images/pilates.jpeg' %}" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-
-
-                                    <a href="" class="btn btn-light py-2 px-3">ALIŞVERİŞE BAŞLA</a>
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3"style="color: #007bff">İNDİRİMLİ SPOR ÜRÜNLERİ</h4>
+                                    <a href="" class="btn btn-light py-2 px-3"style="background-color: #bd726b">Alışverişe Başla</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item" style="height: 410px;">
+                            <img class="img-fluid" src="{% static 'images/diesel_51c_motor.PNG' %}" alt="Image">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">İNDİRİMLİ SPOR ÜRÜNLERİ</h4>
+                                    <a href="" class="btn btn-light py-2 px-3"style="background-color: #bd726b">Alışverişe Başla</a>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="carousel-item" style="height: 410px;">
+                            <img class="img-fluid" src="{% static 'images/Agırlık.PNG' %}" alt="Image">
+                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                                <div class="p-3" style="max-width: 700px;">
+                                    <h4 class="text-light text-uppercase font-weight-medium mb-3">İNDİRİMLİ SPOR ÜRÜNLERİ</h4>
+                                    <a href="" class="btn btn-light py-2 px-3"style="background-color: #bd726b">Alışverişe Başla</a>
                                 </div>
                             </div>
                         </div>
