@@ -92,13 +92,7 @@
                                     <img src="{% static 'img/' %}" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                     <div class="media-body">
                                         <h6>{{ comment.user.username }}<small> - <i>{{ comment.create_at}}</i></small></h6>
-                                        <div class="text-primary mb-2">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                            <i class="far fa-star"></i>
-                                        </div>
+
                                         <p>{{ comment.subject }}-----------------{{ comment.comment }}</p>
 
                                     </div>

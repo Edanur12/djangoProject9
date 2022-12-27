@@ -1,7 +1,7 @@
 {%  extends "homebase.html" %}
 {%  load static %}
 {% block title %} {% for setting in settings %} {{ setting.title}}{% endfor %} {% endblock %}
-{% block sidebar %} {% include 'sidebar.html' %}{% endblock %}
+
 {% block content %}
     {% if user.id is not none %}
     <link href="{% static 'css/style2.css' %}" rel="stylesheet">
